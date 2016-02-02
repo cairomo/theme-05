@@ -146,7 +146,7 @@ body {
     background-image: url({image:background});
     font-family: 'Oxygen';
     font-weight:300;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 1.1rem;
     width:100%;
     height:100%;
@@ -168,11 +168,18 @@ h1 {
     font-size: 1.2rem;
     color: {color:link hover};
     font-weight:700;
+    text-align:center;
+}
+
+ul {
+    list-style-type:none;
+    margin-left:0;
+    text-indent: -1em;
 }
 
 ul li:before {
-    content: &#8212;
-    color: {color:light accents};
+    content: "—";
+    color: {color:tags};
     vertical-align: middle;
     margin-right: 0.5rem;
 }
@@ -263,6 +270,7 @@ code {
 
 .tags {
     display:block;
+    letter-spacing:1px!important;
 }
 
 .tags a {
@@ -274,6 +282,7 @@ code {
 .tags a:hover {
     color:{color:link hover};
     -webkit-transition: color 0.3s;
+     margin-right:0.4rem;
     
 }
 
@@ -530,6 +539,13 @@ ol.notes li.note img.avatar{
 }
 ol.notes li:before {
     content:none!important;
+}
+
+#x {
+    position:fixed;
+    bottom:0.5rem;
+    right:0.5rem;
+    font-size:1rem;
 }
 
 #loading {
@@ -796,6 +812,8 @@ ol.notes li:before {
 {/block:IndexPage}
 
 </div><!---content div--->
+
+<div id="x"><a href="http://mechanise.tumblr.com"  class="hint--bottom" data-hint="theme"><i class="fa fa-diamond"></i></a></div>
 
 </body>
  
