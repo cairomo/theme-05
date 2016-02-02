@@ -371,9 +371,7 @@ nav a:focus {
 }
 
 .desc a {
-    border-bottom:none!important;
-    line-height:inherit!important;
-    margin: 0!important;
+    font-weight:bold;
 }
 
 .caption {
@@ -638,15 +636,14 @@ ol.notes li:before {
 </div>
  
 <!--sidebar-->
+<div id="side">
 <nav class="cl-effect-15" id="cl-effect-15">
-    <div id="side">
-        <a href = "/">
-        {block:ifSidebarImg}
-        <img src="{image:icon}" id="icon">
-        {/block:ifSidebarImg}
-        </a>
+        <a href = "/"><img src="{image:icon}" id="icon"></a>
         <div class="title"><a href = "/" data-hover="{Title}">{Title}</a></div>
+</nav>
         <div class="desc">{Description}</div>
+
+<nav class="cl-effect-15" id="cl-effect-15">
         <div class="nav">
         
                 <a href="{text:link 1 url}" data-hover="{text:link 1}">{text:link 1}</a>
@@ -655,8 +652,9 @@ ol.notes li:before {
                 <a href="{text:link 4 url}" data-hover="{text:link 4}">{text:link 4}</a>
                 <a href="{text:link 5 url}" data-hover="{text:link 5}">{text:link 5}</a>
         </div>
-    </div>
- </nav>
+</nav>
+
+</div>
 <div id="content">
 {block:Posts}
  
