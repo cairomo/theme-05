@@ -135,7 +135,7 @@
 .iframe-controls-container.desktop-logged-in .tx-button {
     font-size: 12px;
     padding: 0 5px;
-    color: #454545;
+    color: {color:text};
     position: relative;
     display: inline-block;
 }
@@ -184,6 +184,17 @@ h1 {
     font-size: 1.2rem;
     color: {color:link hover};
     font-weight:700;
+    text-align:center;
+}
+
+h2 {		
+    text-transform: uppercase;		
+    font-size: 1rem;		
+    color: {color:text};		
+    font-weight:300;		
+    padding-bottom:0.2rem;		
+    border-bottom:1px solid {color:text};		
+    width: 4rem;		
     text-align:center;
 }
 
@@ -293,13 +304,12 @@ code {
     color:{color:tags};
     text-transform:none;
     -webkit-transition: color 0.3s;
+    margin-right:0.4rem;
 }
 
 .tags a:hover {
     color:{color:link hover};
     -webkit-transition: color 0.3s;
-     margin-right:0.4rem;
-    
 }
 
 /* sidebar */
@@ -403,11 +413,17 @@ blockquote {
 }
 /* permalink page */
 img.avatar {display:none; }
-ol.notes {
-    margin-top: 20px;
-    font-size:0.8rem;
+.postnotes {		
+    margin-top:1.5rem;		
+    background:{color:post bg};		
+    padding-top:0.5rem;		
+}		
+ol.notes {		ol.notes {
+    width: 540px;		    margin-top: 20px;
+    list-style-type: none;		    font-size:0.8rem;
+    text-align: left;		
+    padding: 0.5rem;		
 }
-
 .photo {
     border:none!important;
 }
@@ -790,20 +806,24 @@ ol.notes li:before {
 
 <!--permalink page-->
 {block:PermalinkPage}
-<div class="bottom">
-<div class="info">
-    <a href="{Permalink}">{block:NoteCount}{NoteCount}♡{/block:NoteCount}</a>
-    <a href="{ReblogParentURL}" title="{ReblogParentName}">{block:RebloggedFrom}via{/block:RebloggedFrom}</a>
-    <a href="{SourceURL}" title="{SourceTitle}">{block:ContentSource}©{/block:ContentSource}</a>
-    {block:HasTags}
-        {block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}
-    {/block:HasTags}
+ <div class="bottom">
+     <div class="info">
+        <a href="{Permalink}" class="hint--bottom" data-hint="@ {24HourWithZero}:{Minutes}">{DayOfMonthWithZero} {ShortMonth}, {Year}</a>
+        <a href="{Permalink}">{block:NoteCount}&nbsp;/&nbsp;{NoteCount}♡{/block:NoteCount}</a>
+    <a href="{ReblogParentURL}" title="{ReblogParentName}">{block:RebloggedFrom}&nbsp;/&nbsp;{lang:Via}{/block:RebloggedFrom}</a>
+    <a href="{SourceURL}" title="{SourceTitle}">{block:ContentSource}&nbsp;/&nbsp;©{/block:ContentSource}</a>
+         <div class="tags">
+            {block:HasTags}
+                {block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}
+            {/block:HasTags}
+        </div>
     </div>
-
 </div>
-{block:PostNotes}{PostNotes}{/block:PostNotes}
-{/block:PermalinkPage}
+ {/block:PermalinkPage}
     </div> <!---entry div--->
+{block:PermalinkPage}
+    <div class="postnotes">{block:PostNotes}<center><h2>{lang:Notes}</h2></center>{PostNotes}{/block:PostNotes}</div>
+{/block:PermalinkPage}
 {/block:Posts}
  
 {block:ContentSource}<!-- {SourceURL}
