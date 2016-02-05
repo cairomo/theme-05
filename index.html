@@ -533,6 +533,21 @@ ol.notes {
     text-align: left;
 }
 
+.chat {
+    padding-bottom: 0.5rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1rem;
+}
+
+.odd {
+    background:{color:light accents};
+    padding-left: 0.5rem;
+}
+
+.even {
+    padding-left: 0.5rem;
+}
+
 #pagination {
     padding: 0.5rem;
     margin: 3rem 0 3rem 0;
@@ -733,10 +748,14 @@ ol.notes li:before {
     </div>{block:Source}<br><div class="source">{Source}</div>{/block:Source}{/block:Quote}
      
     {block:Chat}
-    {block:Title}<h1>{Title}</h1>{/block:Title}
-    {block:Lines}
-    {block:Label}<b>{Label}</b>{/block:Label} {Line}<br>
-    {/block:Lines}
+    <div class="chat">
+        {block:Title}<h1>{Title}</h1>{/block:Title}
+        {block:Lines}
+        <div class="{Alt}">
+            {block:Label}<b>{Label}</b>{/block:Label}&nbsp;{Line}
+        </div>
+        {/block:Lines}
+    </div>
     {/block:Chat}
  
 
