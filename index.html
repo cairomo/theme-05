@@ -185,6 +185,7 @@ h1 {
     color: {color:link hover};
     font-weight:700;
     text-align:center;
+    padding-bottom: 0.5rem;
 }
 
 h2 {		
@@ -293,6 +294,14 @@ code {
 .info a {
     color:{color:link hover};
     text-transform:lowercase;
+}
+
+.info .notes {
+    text-align: right;
+    display: inline;
+    right: 0;
+    position: absolute;
+    padding-right: 0.5rem;
 }
 
 .tags {
@@ -810,29 +819,33 @@ ol.notes li:before {
 </div>
 {/block:Answer}
 
- {block:IndexPage}
+{block:IndexPage}
  <div class="bottom">
      <div class="info">
         <a href="{Permalink}" class="hint--bottom" data-hint="@ {24HourWithZero}:{Minutes}">{DayOfMonthWithZero} {ShortMonth}, {Year}</a>
-        {block:ifShowTags}
+        <div class="notes">
+            <a href="{Permalink}">{block:NoteCount}{NoteCount}♡{/block:NoteCount}</a>
+        </div>
          <div class="tags">
             {block:HasTags}
                 {block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}
             {/block:HasTags}
         </div>
-        {/block:ifShowTags}
     </div>
 </div>
  {/block:IndexPage}
 
 <!--permalink page-->
+
 {block:PermalinkPage}
  <div class="bottom">
      <div class="info">
         <a href="{Permalink}" class="hint--bottom" data-hint="@ {24HourWithZero}:{Minutes}">{DayOfMonthWithZero} {ShortMonth}, {Year}</a>
-        <a href="{Permalink}">{block:NoteCount}&nbsp;/&nbsp;{NoteCount}♡{/block:NoteCount}</a>
-    <a href="{ReblogParentURL}" title="{ReblogParentName}">{block:RebloggedFrom}&nbsp;/&nbsp;{lang:Via}{/block:RebloggedFrom}</a>
-    <a href="{SourceURL}" title="{SourceTitle}">{block:ContentSource}&nbsp;/&nbsp;©{/block:ContentSource}</a>
+        <a href="{ReblogParentURL}" title="{ReblogParentName}">{block:RebloggedFrom}&nbsp;/&nbsp;{lang:Via}{/block:RebloggedFrom}</a>
+        <a href="{SourceURL}" title="{SourceTitle}">{block:ContentSource}&nbsp;/&nbsp;©{/block:ContentSource}</a>
+        <div class="notes">
+            <a href="{Permalink}">{block:NoteCount}{NoteCount}♡{/block:NoteCount}</a>
+        </div>
          <div class="tags">
             {block:HasTags}
                 {block:Tags}<a href="{TagURL}">#{Tag}</a>{/block:Tags}
@@ -841,7 +854,7 @@ ol.notes li:before {
     </div>
 </div>
  {/block:PermalinkPage}
-    </div> <!---entry div--->
+ </div> <!---entry div--->
 {block:PermalinkPage}
     {block:PostNotes}<div class="postnotes"><center><h2>{lang:Notes}</h2></center>{PostNotes}</div>{/block:PostNotes}
 {/block:PermalinkPage}
